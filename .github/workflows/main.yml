@@ -1,0 +1,26 @@
+name: hello world
+on:
+  workflow_dispatch:
+  pull_request:
+    branches:
+    - main
+  # push:
+  #   branches:
+  #   - main
+  # schedule:
+  #   - cron: "*/5 * * * *"  # runs every 5 minutes
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Displays Hello World Message
+        run: echo "Hello world, Linda"
+      - name: Another task
+        run: echo "Anotehr task"
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+
+      - name:  List the files of the repository
+        run: |
+          echo "The repository ${{ github.repository }} contains the following files:"
+          tree
